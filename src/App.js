@@ -1,23 +1,23 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import Menu from './MenuComponent';
 import './App.css';
 
 function App() {
+
+  const [toggler, setToggler] = useState(false);
+
+  const handleToggler = () => {
+    setToggler(true);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button className="menu_btn" onClick={()=> handleToggler()}>Menu</button>
+      {
+        toggler ?
+        <Menu setToggler={setToggler} />
+        : null
+      }
     </div>
   );
 }
